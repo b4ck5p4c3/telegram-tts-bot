@@ -45,6 +45,7 @@ mqtt.on('error', error => {
 })
 
 bot.command('tts', async (context) => {
+  logger.info('tts?')
   const members = await getMembers()
 
   const message = context.message
