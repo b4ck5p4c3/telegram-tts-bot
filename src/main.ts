@@ -55,9 +55,7 @@ bot.command('tts', async (context) => {
     return
   }
 
-  const text = (context.text.split(/^\/tts$/ig)[1] ?? '').trim()
-
-  console.info(text + ' + ' + context.text)
+  const text = (context.text.split(/^\/tts /ig)[1] ?? '').trim()
 
   if (!text) {
     return
