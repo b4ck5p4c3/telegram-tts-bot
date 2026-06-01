@@ -63,7 +63,9 @@ bot.command('tts', async (context) => {
 
   mqtt.publish(environment.MQTT_TOPIC, text)
 
-  context.sendMessage(`TTS sent: '${text}'!`)
+  context.sendMessage(`TTS sent!`)
+
+  logger.info(`TTS sent: ${text}`)
 })
 
 bot.launch(environment.TELEGRAM_WEBHOOK_DOMAIN
