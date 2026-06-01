@@ -45,7 +45,6 @@ mqtt.on('error', error => {
 })
 
 bot.command('tts', async (context) => {
-  logger.info('tts?')
   const members = await getMembers()
 
   const message = context.message
@@ -56,14 +55,6 @@ bot.command('tts', async (context) => {
     return
   }
 
-  logger.info(`${context.entities().length} ${context.text}`)
-
-  if (context.entities().length > 0 || !context.text) {
-    return
-  }
-
-  logger.info(context.text)
-
   const text = (context.text.split(/^\/tts$/ig)[1] ?? '').trim()
 
   if (!text) {
@@ -72,7 +63,7 @@ bot.command('tts', async (context) => {
 
   mqtt.publish(environment.MQTT_TOPIC, text)
 
-  context.sendMessage('TTS sent!')
+  context.sendMessage(`TTS sent: '${text}'!`)
 })
 
 bot.launch(environment.TELEGRAM_WEBHOOK_DOMAIN
