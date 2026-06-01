@@ -56,7 +56,7 @@ bot.command('tts', async (context) => {
     return
   }
 
-  logger.info('wut?')
+  logger.info(`${context.entities().length} ${context.text}`)
 
   if (context.entities().length > 0 || !context.text) {
     return
