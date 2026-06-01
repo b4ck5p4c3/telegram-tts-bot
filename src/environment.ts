@@ -3,7 +3,7 @@ import { z } from 'zod'
 
 const environmentType = z.object({
   MQTT_CA_CERTIFICATE_PATH: z.string().default('ca-cert.pem'),
-  MQTT_TOPIC: z.string().default('bus/services/alice'),
+  MQTT_TOPIC: z.string().default('bus/services/telegram-tts/text'),
   MQTT_URL: z.url().default('mqtts://test:test@mqtt.int.bksp.in:8883'),
   SWYNCA_API_KEY: z.string(),
   SWYNCA_URL: z.url().default('https://swynca.bksp.in'),
